@@ -1,0 +1,27 @@
+/********************** style du composant header ***************/
+
+.header{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 100%;
+    margin: 0px auto;
+    height: 80px;
+    padding: 20px;
+    background-color: white;
+}
+
+.title-h1{
+     color: black;
+    font-size: 30px;
+    font-weight: 600;
+    /*text-transform: uppercase;*/
+}
+
+.logo{
+    margin-right: 20px;
+    width: 60px;
+    height: 60px;
+}

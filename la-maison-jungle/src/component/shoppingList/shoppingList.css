@@ -1,0 +1,55 @@
+
+.list-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: left;
+
+    width: 100%;
+  
+}
+.list-category{
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: left;
+    background-color: lightblue;
+    
+}
+.li-category{
+    margin: 10px 20px ;
+    color: black;
+}
+
+.list-item{
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.li-item{
+    width: 30%;
+    height: 300px;
+    margin: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.solde-item{
+    margin-left: 20px;
+    background-color: purple;
+    color: white;
+    padding: 0px 10px;
+}
+
+.img-item{
+    width: 150px;
+    height: 150px;
+    
+}

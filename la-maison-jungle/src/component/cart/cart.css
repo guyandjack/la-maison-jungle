@@ -1,0 +1,18 @@
+.list-item{
+    width: 20%;
+    padding: 20px;
+   
+    background-color: #31b572;
+
+}
+.li-item{
+    color: white;
+    margin: 10px 0px;
+}
+.solde-item{
+    display: inline-block;
+    padding: 0px;
+    background-color: darkmagenta;
+
+}
+
