@@ -11,6 +11,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
  const plantList = [
    {
      name: "monstera",
+     price: 10,
      cover: monstera_cover,
      category: "classique",
      id: "1ed",
@@ -20,6 +21,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
    },
    {
      name: "ficus-lyrata",
+     price: 10,
      cover: ficus_lyrata_cover,
      category: "classique",
      id: "2ab",
@@ -29,6 +31,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
    },
    {
      name: "pothos-argenté",
+     price: 10,
      cover: pothos_argente_cover,
      category: "classique",
      id: "3sd",
@@ -38,6 +41,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
    },
    {
      name: "yucca",
+     price: 10,
      cover: yucca_cover,
      category: "classique",
      id: "4kk",
@@ -47,6 +51,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
    },
    {
      name: "olivier",
+     price: 10,
      cover: olivier_cover,
      category: "extérieur",
      id: "5pl",
@@ -56,6 +61,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
    },
    {
      name: "géranium",
+     price: 10,
      cover: geranium_cover,
      category: "extérieur",
      id: "6uo",
@@ -65,6 +71,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
    },
    {
      name: "basilique",
+     price: 10,
      cover: basilic_cover,
      category: "extérieur",
      id: "7ie",
@@ -74,6 +81,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
    },
    {
      name: "aloe",
+     price: 10,
      cover: aloe_vera_cover,
      category: "plante grasse",
      id: "8fp",
@@ -83,6 +91,7 @@ import yucca_cover from "../../src/asset/cover_plant/yucca.webp"
    },
    {
      name: "succulente",
+     price: 10,
      cover: succulente_cover,
      category: "plante grasse",
      id: "9vn",

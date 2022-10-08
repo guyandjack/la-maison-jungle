@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import {Header} from './component/header/header.js';
-//import {Cart} from './component/cart/cart.js';
+//import {SelectedPlant} from "./component/selectedplant/selectedplant.js"
 import {ShoppingList} from "./component/shoppingList/shoppingList"
 import reportWebVitals from './reportWebVitals';
 
@@ -11,6 +11,7 @@ root.render(
   <React.StrictMode>
     < Header />
     < ShoppingList />
+    
    
   </React.StrictMode>
 );

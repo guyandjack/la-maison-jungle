@@ -1,54 +1,71 @@
-import {plantList} from "../../data/listitem"
+
+
+import { plantList } from "../../data/listitem";
 import { ScaleCare } from "../scalecare/scalecare.js";
 
-import "./shoppingList.css"
+import "./shoppingList.css";
 
-function clickCat(category){
-     alert(" tu as clicke sur la categorie " + category)
+
+
+
+function clickCat(category) {
+  console.log(" tu as clicke sur la categorie " + category);
 }
 
-function ShoppingList(){
+function ShoppingList() {
+  let manyPlantCategory = [];
 
-    let manyPlantCategory = [];
+  for (let plant of plantList) {
+    manyPlantCategory.push(plant.category);
+  }
+  console.log(manyPlantCategory);
+  let objectPlantCategory = new Set(manyPlantCategory);
+  let plantCategoryUnique = [...objectPlantCategory];
+  console.log(plantCategoryUnique);
 
-    for (let plant of plantList) {
-     manyPlantCategory.push( plant.category );
-    };
-    console.log(manyPlantCategory)
-     let objectPlantCategory =  new Set(manyPlantCategory);
-     let plantCategoryUnique = [...objectPlantCategory];
-     console.log(plantCategoryUnique)
+  return (
+    <div className="list-container">
+      <ul className="list-category">
+        {plantCategoryUnique.map((plantCat) => {
+          return (
+            <li
+              className="li-category"
+              key={plantCat.id}
+              onClick={() => clickCat(plantCat)}
+            >
+              {plantCat}
+            </li>
+          );
+        })}
+      </ul>
 
-    return (
-      <div className="list-container">
-        <ul className="list-category">
-          {plantCategoryUnique.map((plantCat) => {
-            return (
-              <li className="li-category" key={plantCat.id} onClick={()=>clickCat(plantCat)}>
-                {plantCat}
-              </li>
-            );
-          })}
-        </ul>
-        <ul className="list-item">
-          {plantList.map((item) => {
-            const imgUrl = item.cover;
-            return (
-              <li className="li-item" key={item.id}>
-                <img className="img-item" src={imgUrl} alt={item.name}></img>
-                <p>
-                  {item.name.toLocaleUpperCase()}
-                  {item.isSpecialOffer ? (
-                    <span className="solde-item">produit soldé!!!</span>
-                  ) : null}
-                </p>
-                <ScaleCare water={item.water} light={item.light} />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    );
+      <ul className="list-item">
+        {plantList.map((item) => {
+          const imgUrl = item.cover;
+          return (
+            <li
+              className="li-item"
+              key={item.id}
+              
+            >
+              <img
+                className="img-item"
+                src={imgUrl}
+                alt={item.name + "cover"}
+              ></img>
+              <p>
+                {item.name.toLocaleUpperCase()}
+                {item.isSpecialOffer ? (
+                  <span className="solde-item">produit soldé!!!</span>
+                ) : null}
+              </p>
+              <ScaleCare water={item.water} light={item.light} />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
 
-export {ShoppingList}
+export { ShoppingList };
