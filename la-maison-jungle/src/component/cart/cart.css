@@ -1,18 +1,14 @@
-.list-item{
-    width: 20%;
-    padding: 20px;
-   
-    background-color: #31b572;
-
-}
-.li-item{
+.cart{
+    width: 100%;
+    height: 300px;
+    background-color:  #31b572;
     color: white;
-    margin: 10px 0px;
+
+    padding:15px;
 }
-.solde-item{
-    display: inline-block;
-    padding: 0px;
-    background-color: darkmagenta;
+.cart-title, .cart-total{
+    text-transform: uppercase;
 
 }
+
 

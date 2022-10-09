@@ -1,4 +1,6 @@
 
+//import des fichiers
+import {useState, useEffect} from "react"
 
 import { plantList } from "../../data/listitem";
 import { ScaleCare } from "../scalecare/scalecare.js";
@@ -6,64 +8,47 @@ import { ScaleCare } from "../scalecare/scalecare.js";
 import "./shoppingList.css";
 
 
-
-
-function clickCat(category) {
-  console.log(" tu as clicke sur la categorie " + category);
-}
-
 function ShoppingList() {
-  let manyPlantCategory = [];
 
-  for (let plant of plantList) {
-    manyPlantCategory.push(plant.category);
+  const [itemNumber, addItem] = useState(0);
+
+  function addCart(nbr) {
+    addItem(nbr + 1);
+    console.log(itemNumber)
   }
-  console.log(manyPlantCategory);
-  let objectPlantCategory = new Set(manyPlantCategory);
-  let plantCategoryUnique = [...objectPlantCategory];
-  console.log(plantCategoryUnique);
+
+  
 
   return (
-    <div className="list-container">
-      <ul className="list-category">
-        {plantCategoryUnique.map((plantCat) => {
-          return (
-            <li
-              className="li-category"
-              key={plantCat.id}
-              onClick={() => clickCat(plantCat)}
-            >
-              {plantCat}
-            </li>
-          );
-        })}
-      </ul>
-
-      <ul className="list-item">
-        {plantList.map((item) => {
-          const imgUrl = item.cover;
-          return (
-            <li
-              className="li-item"
-              key={item.id}
-              
-            >
-              <img
-                className="img-item"
-                src={imgUrl}
-                alt={item.name + "cover"}
-              ></img>
-              <p>
-                {item.name.toLocaleUpperCase()}
-                {item.isSpecialOffer ? (
-                  <span className="solde-item">produit soldé!!!</span>
-                ) : null}
-              </p>
-              <ScaleCare water={item.water} light={item.light} />
-            </li>
-          );
-        })}
-      </ul>
+    <div >
+           
+        <ul className="list-item">
+          {plantList.map((item) => {
+            const imgUrl = item.cover;
+            return (
+              <li
+                className="li-item"
+                key={item.id}
+                
+              >
+                <img
+                  className="img-item"
+                  src={imgUrl}
+                  alt={item.name + "cover"}
+                ></img>
+                <p>
+                  {item.name.toLocaleUpperCase()}
+                  {item.isSpecialOffer ? (
+                    <span className="solde-item">produit soldé!!!</span>
+                  ) : null}
+                </p>
+                <ScaleCare water={item.water} light={item.light} />
+                <button className="btn-ajouter"  onClick={()=>{addCart(item)}}>Ajouter</button>
+              </li>
+             );
+           })}
+        </ul>
+      
     </div>
   );
 }

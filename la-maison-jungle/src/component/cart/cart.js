@@ -1,33 +1,27 @@
-import React from "react";
 
-import {plantList} from "../../data/listitem.js"
-import {ScaleCare} from "../scalecare/scalecare.js"
 import "./cart.css" 
 
 
+function Cart(props) {
 
+  let cartList = [];
 
-
-function Cart() {
     
   return (
    
-        <ul className="list-item">
-            {plantList.map((item) => {
-                
-                return (
-                  <li className="li-item" key={item.id}>
-                    <p>
-                      {item.name}
-                      {item.isSpecialOffer ? (
-                        <span className="solde-item"> produit soldé!!!</span>
-                      ) : null}
-                    </p>
-                    <ScaleCare water={item.water} light={item.light} />
-                  </li>
-                );
-            })}
-        </ul>
+        <div className="cart">
+          <p className="cart-title">Votre panier</p>
+          <ul className="cart-list">
+              {cartList.map((item) => { 
+                return(
+
+                <li key={item.id}>{item.name}<span> qte: {props.qte}</span><span>prix: {item.price}</span></li>
+
+                )
+              })}
+          </ul>
+          <p className="cart-total">Total panier<span>prixtotal</span></p>
+        </div>
         
     
   );

@@ -1,0 +1,15 @@
+.list-category{
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: left;
+    width:100%;
+    background-color: lightblue;
+   
+}
+
+.li-category{
+    margin: 10px 20px ;
+    color: black;
+}

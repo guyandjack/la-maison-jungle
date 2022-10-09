@@ -1,0 +1,30 @@
+.main-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    width:100%;
+
+}
+.container-cart-and-shoppinglist{
+    position:relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    width:100%;
+}
+
+.container-cart{
+    position:sticky;
+    top:0px;
+    
+    width:20%;
+}
+
+.container-shoppinglist{
+    width: 80%;
+
+}
