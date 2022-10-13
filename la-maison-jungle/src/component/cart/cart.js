@@ -5,8 +5,10 @@ import "./cart.css"
 
 function Cart({ qty, setqty, itemtype, pushitem, reducecart, setreducecart }) {
 
-  console.log(itemtype)
+  let prixTotal = 0;
+  
 
+  // permet de suprimer un article du panier
   function deleteItem(item) {
     let indexItem = itemtype.indexOf(item);
     let qtyOfItem = itemtype[indexItem].amount;
@@ -15,6 +17,37 @@ function Cart({ qty, setqty, itemtype, pushitem, reducecart, setreducecart }) {
     setqty(qty - qtyOfItem)
   }
 
+  //incremente la qte d' un article du panier
+  function incQty(item, inputValue){
+
+    if(inputValue > 0){
+
+      for(let product of itemtype){
+
+        if(product.id === item.id){
+
+          product.amount = parseInt(inputValue, 10);
+          pushitem(itemtype);
+          setqty (inputValue )
+        }
+      }
+    }
+
+  }
+ 
+  // calcule le prix total du panier
+  if(itemtype.length > 0){
+
+    for(let product of itemtype){
+      
+      prixTotal += (product.amount * product.price)
+    
+    }
+
+  }
+  else{
+    prixTotal = 0;
+  }
   
   
   
@@ -33,15 +66,30 @@ function Cart({ qty, setqty, itemtype, pushitem, reducecart, setreducecart }) {
               return (
                 <li className="cart-list-li" key={item.id}>
                   <span>
-                    {item.name}
+                    {(item.name).toLocaleUpperCase() }
                     <br></br>
                   </span>
+                  <span>Prix: {item.price} € <br></br></span>
+                  <label for="input-number">Qté</label>
+                  <input
+                    id="input-number"
+                    className="input-number"
+                    type="number"
+                    max="99"
+                    min="0"
+                    value={item.amount}
+                    onChange={(e) => incQty(item, e.target.value)}
+                  ></input>
                   <span>
-                    qte: {item.amount} <br></br>
+                    {" "}
+                    Sous total: {item.amount * item.price} € <br></br>
                   </span>
-                  <span>prix unitaire: {item.price}</span>
-                  <span> Sous total: {item.amount * item.price}</span>
-                  <button onClick={() => {deleteItem(item)}}>
+
+                  <button
+                    onClick={() => {
+                      deleteItem(item);
+                    }}
+                  >
                     Suprimer
                   </button>
                 </li>
@@ -52,7 +100,7 @@ function Cart({ qty, setqty, itemtype, pushitem, reducecart, setreducecart }) {
         }
       </ul>
       <p className="cart-total">
-        <span>Nombre total d'article(s): {qty} <br></br></span><span> Montant Total: {}</span>
+        <span>{qty} article(s)<br></br></span><span> Montant Total: {prixTotal} €</span>
       </p>
       <button onClick={ ()=>{setreducecart(true)}}>Fermer le panier</button>
     </div>

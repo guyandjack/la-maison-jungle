@@ -9,7 +9,14 @@
 }
 
 .cart-list-li{
-    margin-top: 15px;
+    margin: 15px 0px 0px 0px;
+}
+
+.input-number{
+    width: 50px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 .cart-title, .cart-total{
     text-transform: uppercase;

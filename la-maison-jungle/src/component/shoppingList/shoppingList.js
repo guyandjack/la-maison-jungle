@@ -16,13 +16,13 @@ function ShoppingList({qty, setqty, itemtype, pushitem, plantcategory, setplantc
   // permet de mette à jours le panier
   function addToCart(item){
 
-    console.log(item)
+    
     // si le panier est vide on ajoute directement le produit
     if(itemtype.length === 0){
       
       item.amount = 1;
       itemtype.push(item);
-      console.log(itemtype)
+      
       pushitem(itemtype);
       setqty(qty + 1)
       setreducecart(false);
@@ -33,34 +33,32 @@ function ShoppingList({qty, setqty, itemtype, pushitem, plantcategory, setplantc
     if(itemtype.length > 0){
 
       let doublon = itemtype.find((plant) => plant.id === item.id );
-      console.log(doublon)
+      
 
       // si aucun doublon n' est trouvé on ajoute le produit au panier
-      if (doublon === undefined ) {
+      if (!doublon ) {
 
         item.amount = 1;
         itemtype.push(item);
-        console.log(itemtype);
+        
         pushitem(itemtype);
         setqty(qty + 1);
         setreducecart(false);
-        console.log(itemtype)
+        
         return
       }
       
       // si un doublon est trouvé on met ajour la quantite dans le panier
       if(doublon){
-        console.log("un doublon existe");
+        
         for( let product of itemtype)
 
           if(product.id === doublon.id){
               product.amount = product.amount + 1;
               pushitem(itemtype)
               setqty(qty + 1)
-              
+              return 
           }
-      return    
-       
         
       }
     }
