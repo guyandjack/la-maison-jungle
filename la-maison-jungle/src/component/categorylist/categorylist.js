@@ -4,38 +4,46 @@ import { plantList } from "../../data/listitem.js";
 
 
 
-function CategoryList(){
+function CategoryList({ plantcategory , setplantcategory}) {
 
-    let manyPlantCategory = [];
+  let manyPlantCategory = [];
 
-    for (let plant of plantList) {
+  for (let plant of plantList) {
     manyPlantCategory.push(plant.category);
-    }
-    console.log(manyPlantCategory);
-    let objectPlantCategory = new Set(manyPlantCategory);
-    let plantCategoryUnique = [...objectPlantCategory];
-    console.log(plantCategoryUnique);
+  }
+  
+  let objectPlantCategory = new Set(manyPlantCategory);
+  let plantCategoryUnique = [...objectPlantCategory];
+ 
 
-    function clickCat(category) {
-    console.log(" tu as clicke sur la categorie " + category);
-    }
+  function selectCategory(category) {
+    plantcategory = category;
+    setplantcategory(plantcategory);
+    
+  }
 
-    return(
+  return (
+    <div className="container-list-category">
+      <div>Filtre par categorie de plante:</div>
 
-        <ul className="list-category">
+      <ul className="list-category">
+        <li className="li-category" onClick={() => setplantcategory("all")}>
+          Afficher toutes les plantes
+        </li>
         {plantCategoryUnique.map((plantCat) => {
-            return (
+          return (
             <li
-                className="li-category"
-                key={plantCat.id}
-                onClick={() => clickCat(plantCat)}
+              className="li-category"
+              key={plantCat.id}
+              onClick={() => selectCategory(plantCat)}
             >
-                {plantCat}
+              {plantCat}
             </li>
-            );
+          );
         })}
-        </ul>
-    )
+      </ul>
+    </div>
+  );
 }
 
 export {CategoryList}

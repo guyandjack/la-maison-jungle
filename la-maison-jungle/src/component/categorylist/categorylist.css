@@ -1,3 +1,6 @@
+.container-list-category{
+    width:100%
+}
 .list-category{
     
     display: flex;
@@ -6,10 +9,17 @@
     align-items: left;
     width:100%;
     background-color: lightblue;
+    border-radius: 20px;
    
 }
 
 .li-category{
     margin: 10px 20px ;
     color: black;
+}
+
+.li-category:hover{
+
+    text-decoration: underline;
+
 }

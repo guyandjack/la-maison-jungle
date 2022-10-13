@@ -18,10 +18,11 @@
 }
 
 .input-error{
+    height:40px;
     padding: 10px;
     margin: 10px auto;
-    background-color: orangered;
     color: white;
+
 }
 
 .btn-submit{
