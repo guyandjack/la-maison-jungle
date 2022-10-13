@@ -16,6 +16,7 @@ function ShoppingList({qty, setqty, itemtype, pushitem, plantcategory, setplantc
   // permet de mette à jours le panier
   function addToCart(item){
 
+    console.log(item)
     // si le panier est vide on ajoute directement le produit
     if(itemtype.length === 0){
       
@@ -25,14 +26,16 @@ function ShoppingList({qty, setqty, itemtype, pushitem, plantcategory, setplantc
       pushitem(itemtype);
       setqty(qty + 1)
       setreducecart(false);
-
+      return
     }
+
     // si le panier n' est pas vide on recherche un éventuel item deja present dans le panier
     if(itemtype.length > 0){
 
       let doublon = itemtype.find((plant) => plant.id === item.id );
       console.log(doublon)
 
+      // si aucun doublon n' est trouvé on ajoute le produit au panier
       if (doublon === undefined ) {
 
         item.amount = 1;
@@ -42,9 +45,23 @@ function ShoppingList({qty, setqty, itemtype, pushitem, plantcategory, setplantc
         setqty(qty + 1);
         setreducecart(false);
         console.log(itemtype)
+        return
       }
-      else{
-        console.log("un doublon existe")
+      
+      // si un doublon est trouvé on met ajour la quantite dans le panier
+      if(doublon){
+        console.log("un doublon existe");
+        for( let product of itemtype)
+
+          if(product.id === doublon.id){
+              product.amount = product.amount + 1;
+              pushitem(itemtype)
+              setqty(qty + 1)
+              
+          }
+      return    
+       
+        
       }
     }
 
@@ -96,7 +113,7 @@ function ShoppingList({qty, setqty, itemtype, pushitem, plantcategory, setplantc
                   ) : null}
                 </div>
                 <ScaleCare water={item.water} light={item.light} />
-                <button className="btn-ajouter"  onClick={()=>{addToCart(item)}}>Ajouter</button>
+                <button className="btn-ajouter"  onClick={()=>{addToCart(item)}}>Ajouter au panier</button>
               </li>
              );
            })}

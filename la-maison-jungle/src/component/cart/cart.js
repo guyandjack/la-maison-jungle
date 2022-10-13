@@ -8,10 +8,11 @@ function Cart({ qty, setqty, itemtype, pushitem, reducecart, setreducecart }) {
   console.log(itemtype)
 
   function deleteItem(item) {
-    let result = itemtype.indexOf(item);
-    itemtype.splice(result, 1);
+    let indexItem = itemtype.indexOf(item);
+    let qtyOfItem = itemtype[indexItem].amount;
+    itemtype.splice(indexItem, 1);
     pushitem(itemtype);
-    setqty(qty - 1)
+    setqty(qty - qtyOfItem)
   }
 
   
