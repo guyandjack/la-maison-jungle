@@ -79,6 +79,7 @@ function ShoppingList({qty, setqty, itemtype, pushitem, plantcategory, setplantc
     if(plantcategory === "all"){
       selectedCat.push(item)
     }
+    
     return selectedCat
   })
   

@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 import "./app.css";
 
@@ -10,10 +10,17 @@ import { ShoppingList } from "./component/shoppingList/shoppingList";
 import { Footer } from "./component/footer/footer.js";
 
 function App(){
+  document.title = "la maison jungle";
 
   // permet de mettre à jour le panier
   const [itemQty, setQty] = useState(0);
-  const [itemType, pushItem] = useState([]);
+  let cart = localStorage.getItem("panier");
+  const [itemType, pushItem] = useState(cart? JSON.parse(cart):[]);
+
+  useEffect(()=>{
+    let cart = JSON.stringify(itemType);
+    localStorage.setItem("panier", cart);
+  }, [itemQty] )
 
   // permet de filtrer les categories de plante
   const [plantCat, setPlantCat] = useState("all");

@@ -1,4 +1,9 @@
 .cart{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
     width: 100%;
     height: fit-content;
     border-radius:20px;
@@ -8,8 +13,52 @@
     padding:15px;
 }
 
+.cart-list{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+    margin: 20px 0px;
+}
+
 .cart-list-li{
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+   
     margin: 15px 0px 0px 0px;
+    width: 100%;
+}
+
+.cart-container-info{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 30%;
+}
+
+.cart-li-img{
+    width:50px;
+    height: 50px;
+}
+
+.cart-input-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 30%;
+}
+
+.cart-soustotal-container{
+    width: 30%;
 }
 
 .input-number{
